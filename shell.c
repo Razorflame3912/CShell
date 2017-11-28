@@ -17,7 +17,7 @@ char * strsepstr(char ** s, char * delim){
     *s = NULL;
     return ret;
   }
-  printf("%s\n",found);
+  //printf("%s\n",found);
   int i = 0;
   for(i;i<strlen(delim);i++){
     found[i] = NULL;
@@ -53,7 +53,7 @@ void multi_exec (char * line){
   char * line3 = strcpy(line2, line);
   int status;
   while(line3){
-    exec_args(strsep(&line3,";"));
+    exec_args(strsepstr(&line3," ; "));
     wait(&status);
   }
 }
@@ -61,7 +61,7 @@ void multi_exec (char * line){
 
 
 int main(){
-  char line[100] = "wow-this-is-cool";
+  /*char line[100] = "wow-this-is-cool";
   char *s1 = line;
   printf("[%s]\n", strsep( &s1, "z" ));
   printf("[%s]\n", s1);
@@ -69,8 +69,8 @@ int main(){
   char line2[100] = "ls -a -l ; woah";
   char *s2 = line2;
   printf("[%s]\n", strsepstr( &s2, " ; " ));
-  printf("[%s]\n", s2);
-  /*while(1){
+  printf("[%s]\n", s2);*/
+  while(1){
     int status;
     char * input = (char *)malloc(200);
     int dir = fork();
@@ -85,6 +85,6 @@ int main(){
     //printf("[%s]\n", input);
     multi_exec(input);
   }
-  */
+  
   return 0;
 }
