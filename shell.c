@@ -37,6 +37,10 @@ void exec_args (char * line){
   if(strncmp(line3,"exit",4) == 0){
     exit(0);
   }
+  else if(strncmp(line3,"cd ",3) == 0){
+    strsep(&line3, " ");
+    chdir(line3);
+  }
   while(line3){
     arr[i] = strsep(&line3," ");
     i++;
