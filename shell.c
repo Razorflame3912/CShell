@@ -35,7 +35,7 @@ void exec_args (char * line){
   char ** arr = (char**)malloc(6 * sizeof(char*));
   int i = 0;
   if(strncmp(line3,"exit",4) == 0){
-    exit(0);
+      exit(0);
   }
   else if(strncmp(line3,"cd ",3) == 0){
     strsep(&line3, " ");
@@ -63,14 +63,14 @@ void redir (char * line){ //takes potential redirect string
     i++;
   }
   arr[i] = NULL;
-  i=0;
+  /* i=0;
   for(i;arr[i];i++){
     printf("%s\n",arr[i]);
-  }
+  }*/
   i=0;
   for(i;arr[i+1];i++){
     int status;
-    int file = open(arr[i+1],O_CREAT | O_TRUNC, 0666);
+    int file = open(arr[i+1],O_CREAT | O_WRONLY, 0666);
     int newstdout = dup(1);
     dup2(file,1);
     int f = fork();

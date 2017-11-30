@@ -1,0 +1,13 @@
+a.out
+README.md
+shell.c
+test2.txt
+test.txt
+6 Nov 29 20:46 .
+drwxrwxr-x 20 mansour mansour  4096 Nov 23 12:46 ..
+-rwxrwxr-x  1 mansour mansour 13824 Nov 29 20:46 a.out
+drwxrwxr-x  8 mansour mansour  4096 Nov 29 20:30 .git
+-rw-rw-r--  1 mansour mansour     8 Nov 23 12:46 README.md
+-rw-rw-r--  1 mansour mansour  2513 Nov 29 20:46 shell.c
+-rw-rw-r--  1 mansour mansour  2569 Nov 29 20:42 test2.txt
+-rw-rw-r--  1 mansour mansour     0 Nov 29 20:42 test.txt
