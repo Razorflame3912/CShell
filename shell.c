@@ -68,7 +68,7 @@ void redir (char * line){ //takes potential redirect string
     printf("%s\n",arr[i]);
   }*/
   i=0;
-  for(i;arr[i+1];i++){
+  for(i;arr[i];i++){
     int status;
     int file = open(arr[i+1],O_CREAT | O_WRONLY, 0666);
     int newstdout = dup(1);
@@ -78,7 +78,7 @@ void redir (char * line){ //takes potential redirect string
       wait(&status);
     }
     else{
-    exec_args(arr[0]);
+    exec_args(arr[i]);
     }
     dup2(newstdout,1);
     close(newstdout);
@@ -95,7 +95,7 @@ void multi_exec (char * line){
       redir(strsepstr(&line3," ; "));
     }
     else{
-      exec_args(strsepstr(&line3," ; "));
+      redir(strsepstr(&line3," ; "));
     }
     wait(&status);
   }
