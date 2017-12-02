@@ -52,7 +52,7 @@ void exec_args (char * line){
   }
 }
 
-void redir (char * line){ //takes potential redirect string
+void redirout (char * line){ //takes potential redirect string
   char * line2 = (char*)malloc(200);
   char * line3 = strcpy(line2, line);
   char ** arr = (char**)malloc(6 * sizeof(char*));
@@ -86,16 +86,51 @@ void redir (char * line){ //takes potential redirect string
   
 }
 
+
+void redirin (char * line){ //takes potential redirect string
+  char * line2 = (char*)malloc(200);
+  char * line3 = strcpy(line2, line);
+  char ** arr = (char**)malloc(6 * sizeof(char*));
+  int i = 0;
+  //redirect stdout
+  while(line3){
+    arr[i] = strsepstr(&line3," < ");
+    i++;
+  }
+  arr[i] = NULL;
+  /* i=0;
+  for(i;arr[i];i++){
+    printf("%s\n",arr[i]);
+  }*/
+  i=0;
+  for(i;arr[i];i++){
+    int status;
+    int file = open(arr[i+1],O_CREAT | O_RDONLY, 0666);
+    int newstdin = dup(0);
+    dup2(file,0);
+    int f = fork();
+    if(f){
+      wait(&status);
+    }
+    else{
+    exec_args(arr[i]);
+    }
+    dup2(newstdin,0);
+    close(newstdin);
+  }
+}
+  
+
 void multi_exec (char * line){
   char * line2 = (char*)malloc(200);
   char * line3 = strcpy(line2, line);
   int status;
   while(line3){
     if(strstr(line3,">")){
-      redir(strsepstr(&line3," ; "));
+      redirout(strsepstr(&line3," ; "));
     }
     else{
-      redir(strsepstr(&line3," ; "));
+      redirin(strsepstr(&line3," ; "));
     }
     wait(&status);
   }
