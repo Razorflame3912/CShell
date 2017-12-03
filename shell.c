@@ -120,6 +120,25 @@ void redirin (char * line){ //takes potential redirect string
   }
 }
   
+void exec_pipe(char * line){
+	char * line2 = (char*)malloc(200);
+  char * line3 = strcpy(line2, line);
+  char ** arr = (char**)malloc(6 * sizeof(char*));
+  int i = 0;
+	while(line3){
+		arr[i] = strsepstr(&line3," | ");
+		i++;
+	}
+	arr[i] = NULL;
+	
+	i = 0;
+	FILE *output;
+	for(i;arr[i];i++) {
+		output = popen(arr[i], "r");
+	}
+	
+	pclose(output);
+}
 
 void multi_exec (char * line){
   char * line2 = (char*)malloc(200);
@@ -129,6 +148,9 @@ void multi_exec (char * line){
     if(strstr(line3,">")){
       redirout(strsepstr(&line3," ; "));
     }
+		else if(strstr(line3,"|")) {
+			exec_pipe(strsepstr(&line3," ; "));
+		}
     else{
       redirin(strsepstr(&line3," ; "));
     }
