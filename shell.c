@@ -1,13 +1,4 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <unistd.h>
-#include <fcntl.h>
-#include <string.h>
-#include <sys/stat.h>
-#include <sys/wait.h>
-#include <time.h>
-#include <sys/types.h>
-#include <dirent.h>
+#include "shell.h"
 
 char * strsepstr(char ** s, char * delim){
   char * found = strstr(*s,delim);
