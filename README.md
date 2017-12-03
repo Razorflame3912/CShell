@@ -20,7 +20,7 @@
 
 ### Files & Function Headers
 
-**shell.c**
+**exec.c**
  * char * strsepstr()<p>
  *Input*: char ** string, char * delim<p>
  *Output*: returns pointer to string with delim replaced with NULL<p>
@@ -67,4 +67,5 @@
  &nbsp;&nbsp;&nbsp;&nbsp;Checks to see if *line* contains >, <, or |<p>
  &nbsp;&nbsp;&nbsp;&nbsp;Runs *strsepstr()* on *line* for semicolon dividers for multi-command input<p>
  
-
+**shell.c**
+ * Runs the CShell 
