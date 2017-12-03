@@ -27,7 +27,7 @@
  &nbsp;&nbsp;&nbsp;&nbsp;Functions like strsep() but is able to take a string delimiter<p>
  
  
- * void exec_args()		
+ * void exec_args()<p>
  *Input*: char * line<p>
  *Output*: executes arguments from line via forking when necessary<p>
  &nbsp;&nbsp;&nbsp;&nbsp;Parses *line* for whitespace if necessary<p>
@@ -36,7 +36,7 @@
  &nbsp;&nbsp;&nbsp;&nbsp;Forks in order to run *execvp* on the arguments given in *line*<p>
  
  
- * void redirout()		
+ * void redirout()<p>
  *Input*: char * line<p>
  *Output*: runs > command via forking<p>
  &nbsp;&nbsp;&nbsp;&nbsp;Takes a potential redirect command<p>
@@ -44,7 +44,7 @@
  &nbsp;&nbsp;&nbsp;&nbsp;Runs *exec_args()* for running > command<p>
  
  
- * void redirin()		
+ * void redirin()<p>
  *Input*: char * line<p>
  *Output*: runs < command via forking<p>
  &nbsp;&nbsp;&nbsp;&nbsp;Takes a potential redirect command<p>
@@ -52,7 +52,7 @@
  &nbsp;&nbsp;&nbsp;&nbsp;Runs *exec_args()* for running < command<p>
  
  
- * void exec_pipe()		
+ * void exec_pipe()<p>
  *Input*: char * line<p>
  *Output*: runs | command via forking<p>
  &nbsp;&nbsp;&nbsp;&nbsp;Takes a potential pipe command<p>
@@ -61,7 +61,7 @@
  &nbsp;&nbsp;&nbsp;&nbsp;Simulates piping through the use of *redirout()* and *redirin()*<p>
  
  
- * void multi_exec()		
+ * void multi_exec()<p>
  *Input*: char * line<p>
  *Output*: parses line and runs the corresponding function<p>
  &nbsp;&nbsp;&nbsp;&nbsp;Checks to see if *line* contains >, <, or |<p>
