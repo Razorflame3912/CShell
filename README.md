@@ -21,7 +21,7 @@
 ### Files & Function Headers
 
 **shell.c**
- * char * strsepstr()				
+ * char * strsepstr()<p>
  *Input*: char ** string, char * delim				
  *Output*: returns pointer to string with delim replaced with NULL				
  &nbsp;&nbsp;&nbsp;&nbsp;Functions like strsep() but is able to take a string delimiter				
