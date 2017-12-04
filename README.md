@@ -13,10 +13,12 @@
 
  * Multiple redirection 
  * Piping using popen()
+ * Writing a commands.txt
 
 ### Bugs
 
  * When piping (e.g. ls | wc), a second output is printed
+ * If you are attempting to redirect a commands.txt into this shell, get your umbrellas because it's going to be a storm
 
 ### Files & Function Headers
 
